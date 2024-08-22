@@ -50,6 +50,6 @@
 
         <livewire:app.backend.dasawisma-activities.delete />
 
-        <livewire:app.backend.dasawisma-activities.bulk-delete />
+        {{-- <livewire:app.backend.dasawisma-activities.bulk-delete /> --}}
     </div>
 </x-app-layout>

@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
             FamilySizeMemberSeeder::class,
             FamilyActivitySeeder::class,
 
-            // FamilyMemberSeeder::class,
+            FamilyMemberSeeder::class,
         ]);
     }
 }

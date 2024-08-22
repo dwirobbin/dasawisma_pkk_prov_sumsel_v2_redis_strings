@@ -45,6 +45,6 @@
 
         <livewire:app.backend.data-input.dasawismas.delete />
 
-        <livewire:app.backend.data-input.dasawismas.bulk-delete />
+        {{-- <livewire:app.backend.data-input.dasawismas.bulk-delete /> --}}
     </div>
 </x-app-layout>

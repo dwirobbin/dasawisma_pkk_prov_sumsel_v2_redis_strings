@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Traits\Sluggable;
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\UserCommentDasawismaActivity;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -50,7 +49,7 @@ class DasawismaActivity extends Model
     protected function image(): Attribute
     {
         return Attribute::make(
-            get: fn (?string $value) => !is_null($value)
+            get: fn(?string $value) => !is_null($value)
                 ? asset('storage/image/dasawisma-activities/' . $value)
                 : asset('src/img/default-img.png')
         );

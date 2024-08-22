@@ -23,7 +23,9 @@ class RoleForm extends Form
     {
         return [
             'name' => [
-                'required', 'string', 'min:3',
+                'required',
+                'string',
+                'min:3',
                 ValidationRule::when(!is_null($this->role), ValidationRule::unique('roles', 'name')->ignore($this->role?->id, 'id')),
                 ValidationRule::when(is_null($this->role), ValidationRule::unique('roles', 'name')),
             ],
@@ -52,7 +54,7 @@ class RoleForm extends Form
         $this->role = $role;
         $this->name = $this->role->name;
 
-        array_push($this->permissions, ...$role->permissions->pluck('slug')->toArray());
+        // array_push($this->permissions, ...$role->permissions->pluck('slug')->toArray());
     }
 
     public function store(): array
@@ -66,10 +68,10 @@ class RoleForm extends Form
                         'slug' => str($validatedData['name'])->slug()
                     ], $validatedData));
 
-                    Permission::query()
-                        ->whereIn('slug', $this->permissions)
-                        ->get()
-                        ->map(fn ($permision) => $role->permissions()->attach($permision->id));
+                    // Permission::query()
+                    //     ->whereIn('slug', $this->permissions)
+                    //     ->get()
+                    //     ->map(fn ($permision) => $role->permissions()->attach($permision->id));
                 });
 
                 $this->message = 'Role berhasil ditambahkan!';
@@ -81,12 +83,12 @@ class RoleForm extends Form
                         'slug' => str($validatedData['name'])->slug()
                     ], $validatedData));
 
-                    $permisionIDs = Permission::query()
-                        ->whereIn('slug', $this->permissions)
-                        ->pluck('id')
-                        ->toArray();
+                    // $permisionIDs = Permission::query()
+                    //     ->whereIn('slug', $this->permissions)
+                    //     ->pluck('id')
+                    //     ->toArray();
 
-                    $this->role->permissions()->sync($permisionIDs);
+                    // $this->role->permissions()->sync($permisionIDs);
                 });
 
                 $this->message = 'Role berhasil diperbaharui!';

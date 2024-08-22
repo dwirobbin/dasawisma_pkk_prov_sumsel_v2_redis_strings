@@ -50,6 +50,6 @@
 
         <livewire:app.backend.sumsel-news.delete />
 
-        <livewire:app.backend.sumsel-news.bulk-delete />
+        {{-- <livewire:app.backend.sumsel-news.bulk-delete /> --}}
     </div>
 </x-app-layout>

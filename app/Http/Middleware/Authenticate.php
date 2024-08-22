@@ -14,15 +14,13 @@ class Authenticate extends Middleware
     protected function redirectTo(Request $request): ?string
     {
         if (!$request->expectsJson()) {
-            if ($request->routeIs('area.*') || $request->routeIs('auth.profile') || $request->routeIs('verification.*')) {
+            if ($request->routeIs('area.*') || $request->routeIs('auth.profile')) {
                 session()->flash('message', [
                     'text' => 'Anda harus masuk terlebih dahulu!',
                     'type' => 'danger'
                 ]);
 
-                return $request->routeIs('verification.*')
-                    ? route('auth.login')
-                    : route('auth.login', ['return-url' => URL::current()]);
+                return route('auth.login', ['return-url' => URL::current()]);
             }
         }
 

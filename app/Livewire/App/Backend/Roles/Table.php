@@ -34,11 +34,9 @@ class Table extends Component
     {
         return Role::query()
             ->select(['id', 'name', 'slug', 'created_at'])
-            ->withCount('permissions')
             ->search(trim($this->search))
             ->orderBy($this->sortColumn, $this->sortDirection)
-            ->paginate($this->perPage)
-            ->onEachSide(1);
+            ->simplePaginate($this->perPage);
     }
 
     public function updatedPerPage(): void

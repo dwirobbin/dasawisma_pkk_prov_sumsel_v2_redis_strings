@@ -152,10 +152,10 @@
                                                         class="dropdown-item @if (request()->routeIs('area.roles.*')) active @endif">
                                                         Role
                                                     </a>
-                                                    <a wire:navigate href="{{ route('area.permissions.index') }}"
+                                                    {{-- <a wire:navigate href="{{ route('area.permissions.index') }}"
                                                         class="dropdown-item @if (request()->routeIs('area.permissions.*')) active @endif">
                                                         Permission
-                                                    </a>
+                                                    </a> --}}
                                                 @endif
                                             @endif
                                         </div>

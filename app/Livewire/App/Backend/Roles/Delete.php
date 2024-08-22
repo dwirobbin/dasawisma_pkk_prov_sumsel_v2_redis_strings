@@ -34,18 +34,18 @@ class Delete extends Component
             DB::transaction(function () {
                 $role = Role::query()->findOrFail($this->id);
 
-                if ($role->permissions()->exists()) {
-                    $role->permissions()->detach([$this->id]);
-                }
+                // if ($role->permissions()->exists()) {
+                //     $role->permissions()->detach([$this->id]);
+                // }
 
                 $role->deleteOrFail();
             });
 
-            flasher_success('Role berhasil dihapus.');
+            toastr_success('Role berhasil dihapus.');
 
             $this->dispatch('refresh-data')->to(Table::class);
         } catch (\Throwable) {
-            flasher_fail('Terjadi suatu kesalahan.');
+            toastr_error('Terjadi suatu kesalahan.');
         }
     }
 }

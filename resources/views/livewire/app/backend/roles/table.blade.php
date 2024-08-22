@@ -47,10 +47,6 @@
                     <th>
                         <span class="d-inline-block py-1">Role</span>
                     </th>
-                    <th>Jumlah Permission</th>
-                    <th>
-                        <span class="d-inline-block py-1">Waktu dibuat</span>
-                    </th>
                     <th class="w-1">Aksi</th>
                 </tr>
             </thead>
@@ -61,10 +57,6 @@
                             {{ ($this->roles->currentPage() - 1) * $this->roles->perPage() + $loop->iteration }}
                         </th>
                         <td>{{ $role->name }}</td>
-                        <td class="text-muted">{{ $role->permissions_count }} Permissions</td>
-                        <td class="text-muted">
-                            {{ $role->created_at->format('d M Y') . ', ' . $role->created_at->format('H:i') }}
-                        </td>
                         <td>
                             <div class="btn-list flex-nowrap">
                                 <a wire:navigate href="{{ route('area.roles.edit', $role->slug) }}" class="form-selectgroup-label bg-warning">
@@ -77,7 +69,7 @@
                                         <path d="M16 5l3 3"></path>
                                     </svg>
                                 </a>
-                                <a x-on:click="$dispatch('delete-confirm', { id: {{ $role->id }}, name: '{{ $role->name }}' })"
+                                {{-- <a x-on:click="$dispatch('delete-confirm', { id: {{ $role->id }}, name: '{{ $role->name }}' })"
                                     class="form-selectgroup-label bg-danger" role="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash text-white" width="24"
                                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -89,7 +81,7 @@
                                         <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
                                         <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
                                     </svg>
-                                </a>
+                                </a> --}}
                             </div>
                         </td>
                     </tr>

@@ -42,6 +42,6 @@
 
         <livewire:app.backend.permissions.delete />
 
-        <livewire:app.backend.permissions.bulk-delete />
+        {{-- <livewire:app.backend.permissions.bulk-delete /> --}}
     </div>
 </x-app-layout>

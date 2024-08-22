@@ -16,7 +16,7 @@ class FamilyBuildingSeeder extends Seeder
      */
     public function run(): void
     {
-        ini_set('memory_limit', '2048M'); //allocate memory
+        // ini_set('memory_limit', '2048M'); //allocate memory
 
         DB::disableQueryLog(); //disable log
 
@@ -33,7 +33,7 @@ class FamilyBuildingSeeder extends Seeder
         ];
         $houseCriteriaLists = ['Sehat', 'Kurang Sehat'];
 
-        $totalRecords = 250000; // Desired total number of records to insert
+        $totalRecords = 100000; // Desired total number of records to insert
         $recordsPerIteration = 50000; // Number of records to insert per inner loop iteration
         $outerLoopIterations = ceil($totalRecords / $recordsPerIteration); // Calculate number of outer loop iterations
 
